@@ -41,3 +41,6 @@ export interface GameCardProps {
 export interface PlatformIconListProps {
   platforms: Platform[];
 }
+export interface CriticScoreProps {
+  score: number;
+}
