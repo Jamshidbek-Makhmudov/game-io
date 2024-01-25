@@ -22,10 +22,10 @@ function App() {
       <GridItem area='aside'>aside</GridItem>
       </Show>
       <GridItem area='main'>
-        {/* <Box paddingLeft={2}> */}
+        <Box paddingLeft={2}>
           <GameGrid/>
 
-        {/* </Box> */}
+        </Box>
       </GridItem>
     </Grid>
   )
