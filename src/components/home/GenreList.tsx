@@ -1,8 +1,9 @@
 import useGenres from '../../hooks/useGenres';
 import { Button, HStack, Heading, Image, List, ListItem, Spinner } from '@chakra-ui/react';
 import getCroppedImageUrl from '../../services/image-url';
+import { GenreListProps } from '../../interfaces';
 
-const GenreList = () => {
+const GenreList = ({ onSelectedGenre}:GenreListProps) => {
 	const { data, isLoading, error } = useGenres()
 	console.log(data);
 	
@@ -27,7 +28,7 @@ const GenreList = () => {
 								whiteSpace='normal'
 								textAlign='left'
 								fontWeight='normal'
-								onClick={() => console.log("clicked genres")}
+								onClick={() => onSelectedGenre(genre)}
 								fontSize='md'
 								variant='link'
 
