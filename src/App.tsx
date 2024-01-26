@@ -37,7 +37,9 @@ function App() {
           </Flex>
 
         </Box>
+
         <GameGrid selectedGenre={ selectedGenre} />
+
       </GridItem>
     </Grid>
   )
