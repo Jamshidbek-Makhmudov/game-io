@@ -33,7 +33,7 @@ function App() {
           </Flex>
 
         </Box>
-          <GameGrid/>
+          <GameGrid/
       </GridItem>
     </Grid>
   )
