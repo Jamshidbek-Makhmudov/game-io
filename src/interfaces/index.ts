@@ -1,52 +1,57 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
+	id: number;
+	name: string;
+	slug: string;
 }
-export interface Game { 
-  id: number;
-  name: string;
-  background_image: string;
-  parent_platforms: { platform: Platform }[];
-  metacritic: number;
-  // rating_top: number;
+export interface Game {
+	id: number;
+	name: string;
+	background_image: string;
+	parent_platforms: { platform: Platform }[];
+	metacritic: number;
+	// rating_top: number;
 }
-export interface FetchRespone<T> { 
-	count: number
-	results: T[]
+export interface FetchRespone<T> {
+	count: number;
+	results: T[];
 }
 
 export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
+	id: number;
+	name: string;
+	image_background: string;
 }
 
-export interface GameQuery { 
+export interface GameQuery {
 	genre: Genre | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
+	platform: Platform | null;
+	sortOrder: string;
+	searchText: string;
 }
-export interface GameCardContainerProps { 
-	children:ReactNode
-	
+export interface GameCardContainerProps {
+	children: ReactNode;
 }
 
 export interface GameCardProps {
-  game: Game
+	game: Game;
 }
 export interface PlatformIconListProps {
-  platforms: Platform[];
+	platforms: Platform[];
 }
 export interface CriticScoreProps {
-  score: number;
+	score: number;
 }
-export interface GenreListProps { 
-  onSelectedGenre:(genre:Genre)=>void;
+export interface GenreListProps {
+	onSelectedGenre: (genre: Genre) => void;
+	selectedGenre: Genre | null;
 }
-export interface GameGridProps { 
-  selectedGenre:Genre | null
+export interface GameGridProps {
+	selectedGenre: Genre | null;
+	selectedPlatform: Platform | null;
+}
+export interface PlatformSelectorPros {
+	selectedPlatform: Platform | null;
+	onSelectedPlatform: (platform: Platform) => void;
 }
