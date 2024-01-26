@@ -2,8 +2,11 @@ import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react';
 import NavBar from './components/navbar/NavBar';
 import GameGrid from './components/home/GameGrid';
 import GenreList from './components/home/GenreList';
+import { useState } from 'react';
+import { Genre } from './interfaces';
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
   return (
     <Grid
     templateAreas={{
@@ -20,7 +23,8 @@ function App() {
       </GridItem>
       <Show above='lg'>
         <GridItem area='aside' paddingX={5}>
-          <GenreList/>
+          {/* shu yerda state ozgargani uchun window rerendeer boladi va render bolganida biz stateni qiymatini pasda GameGridga berib yuboramiz */}
+          <GenreList onSelectedGenre={ (genre)=>setSelectedGenre(genre)} /> 
       </GridItem>
       </Show>
       <GridItem area='main'>
@@ -33,7 +37,7 @@ function App() {
           </Flex>
 
         </Box>
-          <GameGrid/>
+        <GameGrid selectedGenre={ selectedGenre} />
       </GridItem>
     </Grid>
   )

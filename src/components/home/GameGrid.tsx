@@ -4,10 +4,11 @@ import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCard from "./GameCard";
 import useGames from "../../hooks/useGames";
+import { GameGridProps } from "../../interfaces";
 
 
-const GameGrid = () => {
-	const { data, error, isLoading } = useGames()
+const GameGrid = ({ selectedGenre}:GameGridProps) => {
+	const { data, error, isLoading } = useGames(selectedGenre)
 	const skeletons = [1, 2, 3, 4, 5, 6]
 	
 	if (error) return <Text>{error}</Text>

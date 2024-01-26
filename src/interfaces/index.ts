@@ -44,3 +44,9 @@ export interface PlatformIconListProps {
 export interface CriticScoreProps {
   score: number;
 }
+export interface GenreListProps { 
+  onSelectedGenre:(genre:Genre)=>void;
+}
+export interface GameGridProps { 
+  selectedGenre:Genre | null
+}
