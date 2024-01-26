@@ -13,9 +13,9 @@ export interface Game {
   metacritic: number;
   // rating_top: number;
 }
-export interface FetchRespone { 
+export interface FetchRespone<T> { 
 	count: number
-	results:Game[]
+	results: T[]
 }
 
 export interface Genre {
