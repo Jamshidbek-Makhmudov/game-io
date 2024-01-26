@@ -3,28 +3,28 @@ import apiClient from "../services/api-client";
 import { FetchRespone, Game } from "../interfaces";
 import { CanceledError } from "axios";
 
-const useData =() => { 
+const useData = <T>(endpoint:string) => { 
 	
-	const [data, setDatas] = useState<Game[]>([])
+	const [data, setDatas] = useState<T[]>([])
 	const [error, setError] = useState('')
 	const [isLoading, setLoading] = useState(false)
 
 	useEffect(() => { 
 		const controller = new AbortController()
 
-		apiClient.get<FetchRespone>("/games", {
+		setLoading(true)
+		apiClient.get<FetchRespone<T>>(endpoint, {
 			signal: controller.signal
 			//config..
 		})
 		.then(res => {
-				setLoading(true)
 				setDatas(res.data.results);
 				setLoading(false)
 			})
 			.catch((err) => {
 				if (err instanceof CanceledError) return
 				setError(err.message);
-				setLoading(false)
+				setLoading(false) //strick mode {} bu siz ishlamidi
 			})
 		
 			return ()=> controller.abort()

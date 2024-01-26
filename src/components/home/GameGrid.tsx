@@ -3,10 +3,11 @@ import useData from "../../hooks/useData";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCard from "./GameCard";
+import useGames from "../../hooks/useGames";
 
 
 const GameGrid = () => {
-	const { data, error, isLoading } = useData()
+	const { data, error, isLoading } = useGames()
 	const skeletons = [1, 2, 3, 4, 5, 6]
 	
 	if (error) return <Text>{error}</Text>
