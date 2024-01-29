@@ -5,8 +5,8 @@ import GameCard from './GameCard';
 import GameCardContainer from './GameCardContainer';
 import GameCardSkeleton from './GameCardSkeleton';
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: GameGridProps) => {
-	const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+const GameGrid = ({ gameQuery }: GameGridProps) => {
+	const { data, error, isLoading } = useGames(gameQuery);
 	const skeletons = [1, 2, 3, 4, 5, 6];
 
 	if (error) return <Text>{error}</Text>;

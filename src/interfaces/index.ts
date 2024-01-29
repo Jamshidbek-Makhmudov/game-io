@@ -48,10 +48,20 @@ export interface GenreListProps {
 	selectedGenre: Genre | null;
 }
 export interface GameGridProps {
-	selectedGenre: Genre | null;
-	selectedPlatform: Platform | null;
+gameQuery:GameQuery
 }
 export interface PlatformSelectorPros {
 	selectedPlatform: Platform | null;
 	onSelectedPlatform: (platform: Platform) => void;
+}
+
+export interface GameQuery { 
+  genre: Genre | null;
+  platform: Platform | null;
+  sortOrder: string;
+  // searchText: string;
+}
+export interface SortSelectorProps {
+  onSelectSortOrder: (sortOrder: string) => void;
+  sortOrder: string;
 }
