@@ -1,6 +1,19 @@
-import { Game, Genre } from "../interfaces";
-import useData from "./useData";
+import { Game, GameQuery} from '../interfaces';
+import useData from './useData';
 
-const useGames = (selectedGenre:Genre | null) => useData<Game>("/games", { params: {genres:selectedGenre?.id}}, [selectedGenre?.id])
+/**proplarni bunday ishlatishni nomi working with quaery objects deyiladi */
+const useGames = (gameQuery:GameQuery) =>
+	useData<Game>(
+		'/games',
+		{
+			params: {
+				genres: gameQuery.genre?.id,
+				platforms: gameQuery.platform?.id,
+				ordering: gameQuery.sortOrder,
+				search:gameQuery.searchText
+			}
+		},
+		[gameQuery]
+	);
 
-export default useGames
+export default useGames;

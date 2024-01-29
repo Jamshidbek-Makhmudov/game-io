@@ -13,7 +13,9 @@ import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { PlatformIconListProps } from "../../interfaces";
 
-const PlatformIconList = ({ platforms=[]}:PlatformIconListProps) => {
+const PlatformIconList = ({ platforms = [] }: PlatformIconListProps) => {
+    /** this type [key: number]: ImageProps index signature and it says to typescript it can receive any number of key and the keys are numbers this type issue is finding by google by most developrs */
+  //this style of coding is better than ugly if statements
 	  const iconMap: { [key: string]: IconType } = { 
     pc: FaWindows,
     playstation: FaPlaystation,
