@@ -6,6 +6,7 @@ import PlatformSelector from './components/home/PlatformSelector';
 import NavBar from './components/navbar/NavBar';
 import { GameQuery } from './interfaces';
 import SortSelector from './components/home/SortSelector';
+import GameHeading from './components/home/GameHeading';
 
 function App() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
@@ -26,7 +27,7 @@ function App() {
 			}}
 		>
 			<GridItem area='nav'>
-				<NavBar />
+				<NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} />
 			</GridItem>
 			<Show above='lg'>
 				<GridItem area='aside' paddingX={5}>
@@ -39,7 +40,7 @@ function App() {
 			</Show>
 			<GridItem area='main'>
 				<Box paddingLeft={2}>
-					{/* game heading here */}
+					<GameHeading gameQuery={ gameQuery}/>
 					<Flex marginBottom={5}>
 						<Box marginRight={5}>
 							<PlatformSelector

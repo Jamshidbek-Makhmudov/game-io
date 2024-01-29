@@ -1,6 +1,7 @@
 import { Game, GameQuery} from '../interfaces';
 import useData from './useData';
 
+/**proplarni bunday ishlatishni nomi working with quaery objects deyiladi */
 const useGames = (gameQuery:GameQuery) =>
 	useData<Game>(
 		'/games',
@@ -8,7 +9,8 @@ const useGames = (gameQuery:GameQuery) =>
 			params: {
 				genres: gameQuery.genre?.id,
 				platforms: gameQuery.platform?.id,
-				ordering:gameQuery.sortOrder
+				ordering: gameQuery.sortOrder,
+				search:gameQuery.searchText
 			}
 		},
 		[gameQuery]

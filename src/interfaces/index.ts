@@ -11,7 +11,7 @@ export interface Game {
 	background_image: string;
 	parent_platforms: { platform: Platform }[];
 	metacritic: number;
-	// rating_top: number;
+	rating_top: number;
 }
 export interface FetchRespone<T> {
 	count: number;
@@ -59,9 +59,18 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
-  // searchText: string;
+  searchText: string;
 }
 export interface SortSelectorProps {
   onSelectSortOrder: (sortOrder: string) => void;
   sortOrder: string;
+}
+export interface SearchInputProps {
+  onSearch: (searchText: string) => void;
+}
+export interface NavBarProps {
+  onSearch: (searchText: string) => void;
+}
+export interface EmojiProps {
+  rating: number;
 }
