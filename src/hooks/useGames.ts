@@ -1,19 +1,20 @@
-import { Game, GameQuery} from '../interfaces';
-import useData from './useData';
+import { useQuery } from '@tanstack/react-query';
+import { FetchRespone, Game, GameQuery } from '../interfaces';
+import APIClient from "../services/api-client"
+const apiClient = new APIClient<Game>('/games');
 
-/**proplarni bunday ishlatishni nomi working with quaery objects deyiladi */
-const useGames = (gameQuery:GameQuery) =>
-	useData<Game>(
-		'/games',
-		{
-			params: {
+
+const useGames = (gameQuery: GameQuery) => useQuery<FetchRespone<Game>, Error>({
+	queryKey: ["games", gameQuery],
+	queryFn: ()=> apiClient.getAll( {
+				params: {
 				genres: gameQuery.genre?.id,
-				platforms: gameQuery.platform?.id,
+				parent_platforms: gameQuery.platform?.id,
 				ordering: gameQuery.sortOrder,
 				search:gameQuery.searchText
-			}
-		},
-		[gameQuery]
-	);
+			},
+	}),
+	})
+	
 
 export default useGames;
