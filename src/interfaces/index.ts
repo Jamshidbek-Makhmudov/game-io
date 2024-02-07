@@ -15,6 +15,7 @@ export interface Game {
 }
 export interface FetchRespone<T> {
 	count: number;
+	next?: string|null
 	results: T[];
 }
 
