@@ -33,8 +33,8 @@ function App() {
 				<GridItem area='aside' paddingX={5}>
 					{/* shu yerda state ozgargani uchun window rerendeer boladi va render bolganida biz stateni qiymatini pasda GameGridga berib yuboramiz */}
 					<GenreList
-						selectedGenre={gameQuery.genre}
-						onSelectedGenre={genre => setGameQuery({...gameQuery, genre})}
+						selectedGenreId={gameQuery.genreId}
+						onSelectedGenre={genre => setGameQuery({...gameQuery, genreId:genre.id})}
 					/>
 				</GridItem>
 			</Show>
@@ -44,8 +44,8 @@ function App() {
 					<Flex marginBottom={5}>
 						<Box marginRight={5}>
 							<PlatformSelector
-								selectedPlatform={gameQuery.platform}
-								onSelectedPlatform={platform => setGameQuery({...gameQuery, platform})}
+								selectedPlatformId={gameQuery.platformId}
+								onSelectedPlatform={platform => setGameQuery({...gameQuery, platformId:platform.id})}
 								/>
 							{/* 1chisida biz gameQueryni ichidagi genre variableni yubordik, 2chisida shu genre ni object korinishida yubordik, object korinishida yuborishmizni yaxshi tarafi qabul qilib oladigan useGame hookga object korinishda boradi va u oshiqcha kodlarni kamaytirib singli object ishlatishimda qulaylik tug'diradi */}
 

@@ -3,7 +3,7 @@ import { Button, HStack, Heading, Image, List, ListItem, Spinner } from '@chakra
 import getCroppedImageUrl from '../../services/image-url';
 import { GenreListProps } from '../../interfaces';
 
-const GenreList = ({selectedGenre, onSelectedGenre}:GenreListProps) => {
+const GenreList = ({selectedGenreId, onSelectedGenre}:GenreListProps) => {
 	const { data, isLoading, error } = useGenres()
 	console.log(data);
 	
@@ -27,7 +27,7 @@ const GenreList = ({selectedGenre, onSelectedGenre}:GenreListProps) => {
 							<Button
 								whiteSpace='normal'
 								textAlign='left'
-								fontWeight={genre.id===selectedGenre?.id ? 'bold' : 'normal'}
+								fontWeight={genre.id===selectedGenreId ? 'bold' : 'normal'}
 								onClick={() => onSelectedGenre(genre)}
 								fontSize='md'
 								variant='link'

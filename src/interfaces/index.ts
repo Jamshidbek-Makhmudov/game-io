@@ -26,8 +26,9 @@ export interface Genre {
 }
 
 export interface GameQuery {
-	genre: Genre | null;
-	platform: Platform | null;
+	
+	genreId?: number; //genre: number | undefined; bu bilan bir xil
+	platformId?: number;
 	sortOrder: string;
 	searchText: string;
 }
@@ -46,22 +47,16 @@ export interface CriticScoreProps {
 }
 export interface GenreListProps {
 	onSelectedGenre: (genre: Genre) => void;
-	selectedGenre: Genre | null;
+	selectedGenreId?: number; //| undefined ga teng ? optional
 }
 export interface GameGridProps {
 gameQuery:GameQuery
 }
 export interface PlatformSelectorPros {
-	selectedPlatform: Platform | null;
+	selectedPlatformId?: number;
 	onSelectedPlatform: (platform: Platform) => void;
 }
 
-export interface GameQuery { 
-  genre: Genre | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
-}
 export interface SortSelectorProps {
   onSelectSortOrder: (sortOrder: string) => void;
   sortOrder: string;
