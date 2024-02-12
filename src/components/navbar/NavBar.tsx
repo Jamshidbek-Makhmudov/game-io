@@ -6,11 +6,11 @@ import { NavBarProps } from "../../interfaces";
 
 
 
-const NavBar = ({ onSearch}:NavBarProps) => {
+const NavBar = () => {
 	return (
 		<HStack padding="10px">
 			<Image src={logo} boxSize="60px" />	
-			<SearchInput onSearch={onSearch}/>
+			<SearchInput />
 			 <ColorModeSwitch />
 			
 		</HStack>

@@ -29,8 +29,8 @@ export interface GameQuery {
 	
 	genreId?: number; //genre: number | undefined; bu bilan bir xil
 	platformId?: number;
-	sortOrder: string;
-	searchText: string;
+	sortOrder?: string;
+	searchText?: string;
 }
 export interface GameCardContainerProps {
 	children: ReactNode;

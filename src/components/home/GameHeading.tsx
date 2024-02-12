@@ -1,14 +1,15 @@
 import { Heading } from '@chakra-ui/react'
-import { GameGridProps } from '../../interfaces';
-import useGenres from '../../hooks/useGenres';
 import usePlatformHook from '../../hooks/usePlatform';
 import useGenre from '../../hooks/useGenre';
+import useGameQueryStore from '../../store/store';
 
-const GameHeading = ({ gameQuery }: GameGridProps) => {
-  const genre=useGenre(gameQuery.genreId)
+const GameHeading = () => {
+  const genreId=useGameQueryStore(s=>s.gameQuery.genreId)
+  const genre = useGenre(genreId)
 
-const platform = usePlatformHook(gameQuery.platformId) //ozi bundan qaytadigan data object undefined bollishi ham mumkin lekin hookni ozi undefined qiymatni olmaydi bunui hal qilish uchun  u yerda hookda prop kutadigan idni optional berib qoysak kifoya
-
+  const platformId=useGameQueryStore(s=>s.gameQuery.platformId)
+  const platform = usePlatformHook(platformId) 
+  
   const heading = `${platform?.name || ''} ${genre?.name || ''} Games`;  
 
   return (
