@@ -1,8 +1,16 @@
 import { Heading } from '@chakra-ui/react'
-import { GameGridProps } from '../../interfaces';
+import usePlatformHook from '../../hooks/usePlatform';
+import useGenre from '../../hooks/useGenre';
+import useGameQueryStore from '../../store/store';
 
-const GameHeading = ({ gameQuery }: GameGridProps) => {
-  const heading = `${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games`;
+const GameHeading = () => {
+  const genreId=useGameQueryStore(s=>s.gameQuery.genreId)
+  const genre = useGenre(genreId)
+
+  const platformId=useGameQueryStore(s=>s.gameQuery.platformId)
+  const platform = usePlatformHook(platformId) 
+  
+  const heading = `${platform?.name || ''} ${genre?.name || ''} Games`;  
 
   return (
     <Heading as='h1' marginY={5} fontSize='5xl'>{heading}</Heading>
