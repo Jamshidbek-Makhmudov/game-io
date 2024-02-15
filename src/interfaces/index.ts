@@ -1,7 +1,14 @@
 import { ReactNode } from 'react';
-export default interface Publisher {
+
+export interface Publisher {
 	id: number;
 	name: string;
+}
+export interface Trailer {
+	id: number;
+	name: string;
+	preview: string;
+	data: { 480: string; max: string; };
 }
 export interface Platform {
 	id: number;
