@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import useGameDetail from '../hooks/useGameDetail';
 import { GridItem, Heading, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import ExpandableText from '../components/home/ExpandableText';
+import GameAttributes from '../components/home/GameAttributes';
 
 const GameDetailPage = () => {
 	const { slug } = useParams()
@@ -18,9 +19,11 @@ const GameDetailPage = () => {
 				{/* bu yerda game undefined kelishi mukin degan type erro beradi buni togrilash uchun if statementda agar eror bolsa va !game  game bolmasa throw error qilishini korsatamiz va bizda type error yoqoladi , boshqa yoli shu yerda game? qilib optional chaining berib ketsak boladi lekin bunday qilsak gameni gameni qancha kop ishlatsak har safar shu optional chaining ni korsatihsimiz kerak boladi*/}
 				<Heading>{game.name}</Heading>
 				<ExpandableText>{game.description_raw}</ExpandableText>
-		</GridItem>
+				<GameAttributes game={ game} />
+			</GridItem>
 		</SimpleGrid>
 	)
 }
 
-export default GameDetailPage 
+export default GameDetailPage;
+

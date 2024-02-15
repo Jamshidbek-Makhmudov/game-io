@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
-
+export default interface Publisher {
+	id: number;
+	name: string;
+}
 export interface Platform {
 	id: number;
 	name: string;
@@ -10,7 +13,7 @@ export interface Game {
 	name: string;
 	slug: string;
 	genres: Genre[];
-	// publishers: Publisher[];
+	publishers: Publisher[];
 	description_raw: string;
 	background_image: string;
 	parent_platforms: { platform: Platform }[];
